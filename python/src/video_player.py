@@ -256,13 +256,13 @@ class VideoPlayer:
             print(f"No search results for {search_term}")
 
         else:
-            print(f"Here are the results for {search_term}")
+            print(f"Here are the results for {search_term}:")
             for i in range(0, len(sorted_search_results)):
                 result = sorted_search_results[i]
                 print(f"  {i+1}) {result.title} ({result.video_id}) [{' '.join(result.tags)}]")
 
             print("Would you like to play any of the above? If yes, specify the number of the video.")
-            print("If your answer is not a valid number, we will assume it's a no")
+            print("If your answer is not a valid number, we will assume it's a no.")
             video_to_play = input()
 
             options = {
@@ -288,13 +288,13 @@ class VideoPlayer:
             print(f"No search results for {video_tag}")
 
         else:
-            print(f"Here are the results for {video_tag}")
+            print(f"Here are the results for {video_tag}:")
             for i in range(0, len(sorted_search_results)):
                 result = sorted_search_results[i]
                 print(f"  {i + 1}) {result.title} ({result.video_id}) [{' '.join(result.tags)}]")
 
             print("Would you like to play any of the above? If yes, specify the number of the video.")
-            print("If your answer is not a valid number, we will assume it's a no")
+            print("If your answer is not a valid number, we will assume it's a no.")
             video_to_play = input()
 
             options = {
