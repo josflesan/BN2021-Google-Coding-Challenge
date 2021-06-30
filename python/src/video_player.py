@@ -46,22 +46,21 @@ class VideoPlayer:
         if next_video is None:
             print("Cannot play video: Video does not exist")
 
+        elif next_video.getFlag()["set"]:
+            print(f"Cannot play video: Video is currently flagged (reason: {next_video.getFlag()['reason']})")
+
         else:
 
             # If class field is a truthy value (ie. not Null)
             if self._video_playing:
                 print(f"Stopping video: {self._video_playing.get('video').title}")
 
-            elif next_video.getFlag()["set"]:
-                print(f"Cannot play video: Video is currently flagged (reason: {next_video.getFlag()['reason']})")
-
-            else:
-                print(f"Playing video: {next_video.title}")
-                # Update video currently playing
-                self._video_playing = {
-                    "video": next_video,
-                    "paused": False
-                }
+            print(f"Playing video: {next_video.title}")
+            # Update video currently playing
+            self._video_playing = {
+                "video": next_video,
+                "paused": False
+            }
 
     def stop_video(self):
         """Stops the current video."""
@@ -326,8 +325,9 @@ class VideoPlayer:
             else:
                 selected_video.setFlag(flag_reason)
 
-                if selected_video.video_id == self._video_playing['video'].video_id:
-                    self.stop_video()
+                if self._video_playing is not None:
+                    if selected_video.video_id == self._video_playing['video'].video_id:
+                        self.stop_video()
 
                 print(f"Successfully flagged video: {selected_video.title} (reason: {flag_reason})")
 
@@ -337,4 +337,16 @@ class VideoPlayer:
         Args:
             video_id: The video_id to be allowed again.
         """
-        print("allow_video needs implementation")
+
+        if video_id not in [video.video_id for video in self._video_library.get_all_videos()]:
+            print(f"Cannot remove flag from video: Video does not exist")
+
+        else:
+            selected_video = [video for video in self._video_library.get_all_videos() if video.video_id == video_id][0]
+
+            if not selected_video.getFlag()['set']:
+                print(f"Cannot remove flag from video: Video is not flagged")
+
+            else:
+                selected_video.unFlag()
+                print(f"Successfully removed flag from video: {selected_video.title}")

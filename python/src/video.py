@@ -41,3 +41,6 @@ class Video:
     def setFlag(self, reason):
         self._flagReason = reason
         self._flag = True
+
+    def unFlag(self):
+        self._flag = False
