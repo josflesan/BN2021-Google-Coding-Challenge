@@ -1,5 +1,6 @@
 from .video_library import VideoLibrary
 from .helper_algorithms import title_insertion_sort
+from .playlist import Playlist
 
 import random
 
@@ -10,6 +11,8 @@ class VideoPlayer:
     def __init__(self):
         self._video_library = VideoLibrary()
         self._video_playing = None
+
+        self._playlists = []
 
     def number_of_videos(self):
         num_videos = len(self._video_library.get_all_videos())
@@ -132,7 +135,16 @@ class VideoPlayer:
         Args:
             playlist_name: The playlist name.
         """
-        print("create_playlist needs implementation")
+
+        playlist_name = "_".join(playlist_name.split(" "))  # If there are any spaces in name, add _
+
+        # Check playlist doesn't already exist, transform to uppercase because case-insensitive
+        if playlist_name.upper() in [playlist.getName.upper() for playlist in self._playlists]:
+            print("Cannot create playlist: A playlist with the same name already exists")
+
+        else:
+            new_playlist = Playlist(playlist_name)
+            self._playlists.append(new_playlist)
 
     def add_to_playlist(self, playlist_name, video_id):
         """Adds a video to a playlist with a given name.
