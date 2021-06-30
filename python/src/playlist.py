@@ -74,6 +74,11 @@ class Playlist:
             for video in self.getVideos:
                 print(f"  {video.title} ({video.video_id}) [{video.tags}]")
 
+    def clear(self, playlist_name):
+        self._videos = []
+        self._video_ids = []
+        print(f"Successfully removed all videos from {playlist_name}")
+
 
 
 
