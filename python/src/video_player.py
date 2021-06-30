@@ -37,7 +37,7 @@ class VideoPlayer:
         next_video = self._video_library.get_video(video_id)
 
         if next_video is None:
-            print("Cannot play video: Video does not exist")
+            print("Cannot play video: Video does not exist\n")
 
         else:
 
@@ -50,7 +50,12 @@ class VideoPlayer:
     def stop_video(self):
         """Stops the current video."""
 
-        print("stop_video needs implementation")
+        if self._video_playing is None:
+            print("Cannot stop video: No video is currently playing\n")
+
+        else:
+            print(f"Stopping video: {self._video_playing.title}\n")
+            self._video_playing = None  # Update class field to represent video stopping
 
     def play_random_video(self):
         """Plays a random video from the video library."""
