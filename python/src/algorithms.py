@@ -1,12 +1,10 @@
 """A set of helper functions implementing useful algorithms."""
 
-from .video_library import VideoLibrary
 
-
-def title_insertion_sort(unsorted_object: VideoLibrary):
+def title_insertion_sort(unsorted_object):
     """Returns list of video objects sorted by title"""
 
-    all_videos = unsorted_object.get_all_videos()
+    all_videos = unsorted_object
 
     for i in range(1, len(all_videos)):
         key = all_videos[i]

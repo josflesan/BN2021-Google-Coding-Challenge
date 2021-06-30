@@ -1,5 +1,5 @@
 from .video_library import VideoLibrary
-from .helper_algorithms import title_insertion_sort
+from .algorithms import title_insertion_sort
 from .playlist import Playlist
 
 import random
@@ -21,7 +21,7 @@ class VideoPlayer:
     def show_all_videos(self):
         """Returns all videos."""
 
-        all_sorted_videos = title_insertion_sort(self._video_library)
+        all_sorted_videos = title_insertion_sort(self._video_library.get_all_videos())
         print("Here's a list of all available videos: ")
 
         for video in all_sorted_videos:
@@ -139,12 +139,21 @@ class VideoPlayer:
         playlist_name = "_".join(playlist_name.split(" "))  # If there are any spaces in name, add _
 
         # Check playlist doesn't already exist, transform to uppercase because case-insensitive
-        if playlist_name.upper() in [playlist.getName.upper() for playlist in self._playlists]:
+        if playlist_name.upper() in [playlist.title.upper() for playlist in self._playlists]:
             print("Cannot create playlist: A playlist with the same name already exists")
 
         else:
             new_playlist = Playlist(playlist_name)
             self._playlists.append(new_playlist)
+
+    def select_playlist(self, playlist_name):
+        """Returns playlist in video player with same name as argument"""
+        if playlist_name.upper() in [playlist.title.upper() for playlist in self._playlists]:
+            return [playlist for playlist in self._playlists
+                    if playlist.title.upper() == playlist_name.upper()][0]
+
+        else:
+            return None
 
     def add_to_playlist(self, playlist_name, video_id):
         """Adds a video to a playlist with a given name.
@@ -153,12 +162,26 @@ class VideoPlayer:
             playlist_name: The playlist name.
             video_id: The video_id to be added.
         """
-        print("add_to_playlist needs implementation")
+
+        if playlist_name.upper() not in [playlist.title.upper() for playlist in self._playlists]:
+            print(f"Cannot add video to {playlist_name}: Playlist does not exist")
+
+        else:
+            selected_playlist = self.select_playlist(playlist_name)
+            selected_playlist.addVideo(playlist_name, self._video_library.get_all_videos(), video_id)
 
     def show_all_playlists(self):
         """Display all playlists."""
 
-        print("show_all_playlists needs implementation")
+        if len(self._playlists) == 0:
+            print("No playlists exist yet")
+
+        else:
+            print("Showing all playlists:")
+
+            sorted_playlists = title_insertion_sort(self._playlists)
+            for playlist in sorted_playlists:
+                print(f"  {playlist.title}")
 
     def show_playlist(self, playlist_name):
         """Display all videos in a playlist with a given name.
@@ -166,7 +189,13 @@ class VideoPlayer:
         Args:
             playlist_name: The playlist name.
         """
-        print("show_playlist needs implementation")
+
+        if playlist_name.upper() not in [playlist.title.upper() for playlist in self._playlists]:
+            print(f"Cannot show playlist {playlist_name}: Playlist does not exist")
+
+        else:
+            selected_playlist = self.select_playlist(playlist_name)
+            selected_playlist.showPlaylist(playlist_name)
 
     def remove_from_playlist(self, playlist_name, video_id):
         """Removes a video to a playlist with a given name.
@@ -175,7 +204,13 @@ class VideoPlayer:
             playlist_name: The playlist name.
             video_id: The video_id to be removed.
         """
-        print("remove_from_playlist needs implementation")
+
+        selected_playlist = self.select_playlist(playlist_name)
+        if selected_playlist is None:
+            print(f"Cannot remove video from {playlist_name}: Playlist does not exist")
+
+        else:
+            selected_playlist.removeVideo(playlist_name, self._video_library.get_all_videos(), video_id)
 
     def clear_playlist(self, playlist_name):
         """Removes all videos from a playlist with a given name.
