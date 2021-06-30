@@ -1,6 +1,8 @@
 from .video_library import VideoLibrary
 from .helper_algorithms import title_insertion_sort
 
+import random
+
 
 class VideoPlayer:
     """A class used to represent a Video Player."""
@@ -41,7 +43,8 @@ class VideoPlayer:
 
         else:
 
-            if self._video_playing is not None:
+            # If class field is a truthy value (ie. not Null)
+            if self._video_playing:
                 print(f"Stopping video: {self._video_playing.title}")
 
             print(f"Playing video: {next_video.title}\n")
@@ -60,7 +63,13 @@ class VideoPlayer:
     def play_random_video(self):
         """Plays a random video from the video library."""
 
-        print("play_random_video needs implementation")
+        if self._video_playing:
+            print(f"Stopping video: {self._video_playing.title}")
+
+        random_video = random.choice(self._video_library.get_all_videos())
+
+        print(f"Playing video: {str(random_video.title)}\n")
+        self._video_playing = random_video  # Update video that is currently playing
 
     def pause_video(self):
         """Pauses the current video."""
