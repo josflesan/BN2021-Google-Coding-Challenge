@@ -72,7 +72,7 @@ class Playlist:
 
         else:
             for video in self.getVideos:
-                print(f"  {video.title} ({video.video_id}) [{video.tags}]")
+                print(f"  {video.title} ({video.video_id}) [{' '.join(video.tags)}]")
 
     def clear(self, playlist_name):
         self._videos = []

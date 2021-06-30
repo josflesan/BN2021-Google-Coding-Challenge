@@ -19,3 +19,24 @@ def title_insertion_sort(unsorted_object):
         all_videos[j + 1] = key
 
     return all_videos
+
+
+def title_linear_search(video_list, pattern):
+    search_results = []
+
+    for video in video_list:
+        if pattern.upper() in video.title.upper():
+            search_results.append(video)
+
+    return search_results
+
+
+def tag_linear_search(video_list, tag):
+    search_results = []
+
+    for video in video_list:
+        if tag.upper() in [tag.upper() for tag in video.tags]:
+            search_results.append(video)
+
+    return search_results
+
