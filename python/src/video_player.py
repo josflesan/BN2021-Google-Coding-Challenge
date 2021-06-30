@@ -1,6 +1,5 @@
-"""A video player class."""
-
 from .video_library import VideoLibrary
+from .helper_algorithms import title_insertion_sort
 
 
 class VideoPlayer:
@@ -16,7 +15,16 @@ class VideoPlayer:
     def show_all_videos(self):
         """Returns all videos."""
 
-        print("show_all_videos needs implementation")
+        all_sorted_videos = title_insertion_sort(self._video_library)
+        print("Here's a list of all available videos: ")
+
+        for video in all_sorted_videos:
+            # Unpack the video object
+            video_title = video.title
+            video_id = video.video_id
+            video_tags = " ".join(video.tags)
+
+            print(f"  {video_title} ({video_id}) [{video_tags}]")
 
     def play_video(self, video_id):
         """Plays the respective video.
