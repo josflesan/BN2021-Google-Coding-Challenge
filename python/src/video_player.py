@@ -45,10 +45,14 @@ class VideoPlayer:
 
             # If class field is a truthy value (ie. not Null)
             if self._video_playing:
-                print(f"Stopping video: {self._video_playing.title}")
+                print(f"Stopping video: {self._video_playing.get('video').title}")
 
             print(f"Playing video: {next_video.title}\n")
-            self._video_playing = next_video  # Update video currently playing
+            # Update video currently playing
+            self._video_playing = {
+                "video": next_video,
+                "paused": False
+            }
 
     def stop_video(self):
         """Stops the current video."""
@@ -57,24 +61,38 @@ class VideoPlayer:
             print("Cannot stop video: No video is currently playing\n")
 
         else:
-            print(f"Stopping video: {self._video_playing.title}\n")
+            print(f"Stopping video: {self._video_playing.get('video').title}\n")
             self._video_playing = None  # Update class field to represent video stopping
 
     def play_random_video(self):
         """Plays a random video from the video library."""
 
         if self._video_playing:
-            print(f"Stopping video: {self._video_playing.title}")
+            print(f"Stopping video: {self._video_playing.get('video').title}")
 
         random_video = random.choice(self._video_library.get_all_videos())
 
         print(f"Playing video: {str(random_video.title)}\n")
-        self._video_playing = random_video  # Update video that is currently playing
+        # Update video that is currently playing
+        self._video_playing = {
+            "video": random_video,
+            "paused": False
+        }
 
     def pause_video(self):
         """Pauses the current video."""
 
-        print("pause_video needs implementation")
+        if self._video_playing:
+
+            if self._video_playing.get('paused'):
+                print(f"Video already paused: {self._video_playing.get('video').title}\n")
+
+            else:
+                print(f"Pausing video: {self._video_playing.get('video').title}\n")
+                self._video_playing['paused'] = True
+
+        else:
+            print("Cannot pause video: No video is currently playing\n")
 
     def continue_video(self):
         """Resumes playing the current video."""
