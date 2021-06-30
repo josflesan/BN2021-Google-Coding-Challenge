@@ -37,7 +37,12 @@ class Playlist:
 
             new_video = [video for video in library if (video.video_id == video_id)][0]
 
-            if new_video.video_id in self.getVideoIDs:
+            if new_video.getFlag()["set"]:
+                print(
+                    f"Cannot add video to {playlist_name}: Video is currently flagged (reason: {new_video.getFlag()['reason']})"
+                )
+
+            elif new_video.video_id in self.getVideoIDs:
                 print(f"Cannot add video to {playlist_name}: Video already added")
 
             else:
@@ -72,14 +77,10 @@ class Playlist:
 
         else:
             for video in self.getVideos:
-                print(f"  {video.title} ({video.video_id}) [{' '.join(video.tags)}]")
+                video_flag = "" if not video.getFlag()['set'] else f" - FLAGGED (reason: {video.getFlag()['reason']})"
+                print(f"  {video.title} ({video.video_id}) [{' '.join(video.tags)}]{video_flag}")
 
     def clear(self, playlist_name):
         self._videos = []
         self._video_ids = []
         print(f"Successfully removed all videos from {playlist_name}")
-
-
-
-
-

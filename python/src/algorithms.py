@@ -25,7 +25,7 @@ def title_linear_search(video_list, pattern):
     search_results = []
 
     for video in video_list:
-        if pattern.upper() in video.title.upper():
+        if pattern.upper() in video.title.upper() and not video.getFlag()['set']:
             search_results.append(video)
 
     return search_results
@@ -35,7 +35,8 @@ def tag_linear_search(video_list, tag):
     search_results = []
 
     for video in video_list:
-        if tag.upper() in [tag.upper() for tag in video.tags]:
+        if tag.upper() in [tag.upper() for tag in video.tags] and \
+                not video.getFlag()['set']:
             search_results.append(video)
 
     return search_results
