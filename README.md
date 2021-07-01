@@ -48,7 +48,7 @@
 
 
 ## Screenshots
-![Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/main/python/img/Use%20Case.png)
+![Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/blob/main/python/img/Use%20Case.png)
 
 
 ## Setup
@@ -58,10 +58,10 @@ What are the project requirements/dependencies? Where are they listed? A require
 - pytest module (pip install pytest)
 
 Run program using python3 -m src.run
-![Run Configuration](https://github.com/josflesan/BN2021-Google-Coding-Challenge/main/python/img/Run%20Config.png)
+![Run Configuration](https://github.com/josflesan/BN2021-Google-Coding-Challenge/blob/main/python/img/Run%20Config.png)
 
 Run tests using python3 -m pytest 
-![Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/main/python/img/Test%20Config.png)
+![Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/blob/main/python/img/Test%20Config.png)
 
 
 ## Usage
