@@ -12,7 +12,6 @@
 * [Project Status](#project-status)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
 
 
 ## General Information
@@ -27,29 +26,29 @@
 
 
 ## Features
-- NUMBER_OF_VIDEOS: returns the number of videos stored in the video library
-- SHOW_ALL_VIDEOS: displays a list of all videos in the library by lexicographical order
-- PLAY <video_id>: simulates playing a video specified using an alphanumeric id with no whitespaces
-- STOP: simulates stopping the video that is currently playing
-- PLAY_RANDOM: selects a random, unflagged video from the library and plays it
-- PAUSE: simulates pausing the video that is currently playing
-- CONTINUE: simulates resuming the video that was paused
-- SHOW_PLAYING: displays the video that is currently being played along with its state (PAUSED or not)
-- CREATE-PLAYLIST <playlist_name>: simulates creating a playlist 
-- ADD_TO_PLAYLIST <playlist_name><video_id>: simulates adding a video to a playlist
-- SHOW_ALL_PLAYLISTS: displays a list of all the names of the created playlists
-- SHOW_PLAYLIST <playlist_name>: shows all videos in a playlist
-- REMOVE_FROM_PLAYLIST <playlist_name><video_id>: simulates deleting a video from a playlist
-- CLEAR_PLAYLIST <playlist_name>: deletes all videos from a playlist without deleting the playlist
-- DELETE_PLAYLIST <playlist_name>: deletes a playlist and its content from the video player
-- SEARCH_VIDEOS <search_term>: searches videos by title given a string pattern to lookup
-- SEARCH_VIDEOS_WITH_TAG <tag_name>: searches videos by tag given a string pattern to lookup
-- FLAG_VIDEO <video_id><flag_reason>: flags a video so it can't be added to a playlist or reproduced, optional attribute provides reason for flagging or defaults to "Not provided" if omitted
-- ALLOW_VIDEO <video_id>: allows users to unflag video 
+- `NUMBER_OF_VIDEOS`: returns the number of videos stored in the video library
+- `SHOW_ALL_VIDEOS`: displays a list of all videos in the library by lexicographical order
+- `PLAY <video_id>`: simulates playing a video specified using an alphanumeric id with no whitespaces
+- `STOP`: simulates stopping the video that is currently playing
+- `PLAY_RANDOM`: selects a random, unflagged video from the library and plays it
+- `PAUSE`: simulates pausing the video that is currently playing
+- `CONTINUE`: simulates resuming the video that was paused
+- `SHOW_PLAYING`: displays the video that is currently being played along with its state (PAUSED or not)
+- `CREATE_PLAYLIST <playlist_name>`: simulates creating a playlist 
+- `ADD_TO_PLAYLIST <playlist_name><video_id>`: simulates adding a video to a playlist
+- `SHOW_ALL_PLAYLISTS`: displays a list of all the names of the created playlists
+- `SHOW_PLAYLIST <playlist_name>`: shows all videos in a playlist
+- `REMOVE_FROM_PLAYLIST <playlist_name><video_id>`: simulates deleting a video from a playlist
+- `CLEAR_PLAYLIST <playlist_name>`: deletes all videos from a playlist without deleting the playlist
+- `DELETE_PLAYLIST <playlist_name>`: deletes a playlist and its content from the video player
+- `SEARCH_VIDEOS <search_term>`: searches videos by title given a string pattern to lookup
+- `SEARCH_VIDEOS_WITH_TAG <tag_name>`: searches videos by tag given a string pattern to lookup
+- `FLAG_VIDEO <video_id><flag_reason>`: flags a video so it can't be added to a playlist or reproduced, optional attribute provides reason for flagging or defaults to "Not provided" if omitted
+- `ALLOW_VIDEO <video_id>`: allows users to unflag video 
 
 
 ## Screenshots
-![Example screenshot](BN2021-Google-Coding-Challenge/python/img/Use Case.png)
+[Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/main/python/img/Use Case.png)
 
 
 ## Setup
@@ -59,10 +58,10 @@ What are the project requirements/dependencies? Where are they listed? A require
 - pytest module (pip install pytest)
 
 Run program using python3 -m src.run
-![Run Configuration](BN2021-Google-Coding-Challenge/python/img/Run Config.png)
+[Run Configuration](https://github.com/josflesan/BN2021-Google-Coding-Challenge/main/python/img/Run Config.png)
 
 Run tests using python3 -m pytest 
-![Example screenshot](BN2021-Google-Coding-Challenge/python/img/Test Config.png)
+[Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/main/python/img/Test Config.png)
 
 
 ## Usage
@@ -78,6 +77,11 @@ Example:
 
 ## Project Status
 Project is:  _complete_
+
+
+##Improvements
+
+- Code could be refactored further to improve readability
 
 
 ## Acknowledgements
