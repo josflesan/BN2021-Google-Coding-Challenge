@@ -49,7 +49,7 @@
 
 
 ## Screenshots
-![Example screenshot](./python/img/Use Case.png)
+![Example screenshot](/python/img/Use Case.png)
 
 
 ## Setup
@@ -59,10 +59,10 @@ What are the project requirements/dependencies? Where are they listed? A require
 - pytest module (pip install pytest)
 
 Run program using python3 -m src.run
-![Run Configuration](./python/img/Run Config.png)
+![Run Configuration](/python/img/Run Config.png)
 
 Run tests using python3 -m pytest 
-![Example screenshot](./python/img/Test Config.png)
+![Example screenshot](/python/img/Test Config.png)
 
 
 ## Usage
