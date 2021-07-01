@@ -2,6 +2,8 @@
 > Command-Line YouTube app mock-up program submitted as part of Google's coding challenge for the
 > Bright Network Internship, Technology 2021
 
+![Example screenshot](https://github.com/josflesan/BN2021-Google-Coding-Challenge/blob/main/python/img/Google%20Coding%20Challenge%20Banner.png)
+
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
