@@ -81,7 +81,7 @@ Example:
 Project is:  _complete_
 
 
-##Improvements
+## Improvements
 
 - Code could be refactored further to improve readability
 
